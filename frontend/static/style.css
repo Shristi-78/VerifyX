@@ -1,0 +1,255 @@
+*{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    background: url("images/indexPG.png");
+    background-position:center;
+    background-size: cover;
+}
+.nav{
+    padding: 30px;
+    background-color: #181818b0;
+    height:80px;
+    
+}
+
+.nav h1{
+    font-size: 30px;
+    transform: translateX(50px) translateY(10px);
+
+    width: fit-content;
+    font-family: "Geo",serif;
+    font-weight: 400;
+    color:#966f5d;
+
+}
+
+.nav img{
+    height: 70px;
+    transform: translate3d(50px, -5px);
+}
+
+.nav-container{
+    text-align: end;
+    width:80%;
+    transform: translateX(-2px) translateY(18px);
+}
+.nav a{
+    color: #DEF2FD;
+    text-decoration: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 50;
+    padding-left: 1em;
+    padding-right: 1em;
+    font-size: 18px;
+}
+
+#org{
+    border: 1px solid #DEF2FD;
+    margin-left: 30%;
+    padding: 0.5em 2em;
+    border-radius: 4em;
+}
+
+.content{
+    display: flex;
+    justify-content:center;
+    background-color: #181818b0;
+    align-items:center;
+    height:91vh;
+    overflow: hidden;
+}
+
+
+.login-bg{
+    transform: translateX(30%);
+    width: 660px;
+    height:fit-content;
+    padding: 60px 70px;
+    background-color:#18181800;
+    text-align: center;
+}
+
+
+.login-bg h2{
+    color: #DEF2FD;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.login-bg h3{
+    color: #a2a2a2;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+    padding:0 15%;
+    font-weight: lighter;
+}
+
+.input-button{
+    margin-top:50px;
+}
+
+.input-button a{
+    text-decoration: none;
+    padding: 1em 4em;
+    color:#DEF2FD;
+    background: transparent;
+    border:none;
+    margin:none;
+    border:1px solid #def2fdd3;;
+    border-radius: 4em;
+}
+
+.input-button a:hover{
+    color:#000000;
+    background: #DEF2FD;
+
+}
+
+
+
+.login_wrapper {
+    background: #ffffff00;
+    padding: 13vh 20px 20px 20px;
+    
+    border-radius: 15px;
+    
+    max-width: 400px;
+    width: 100%;
+    height: 500px;
+    transform: translateX(30vh);
+    
+}
+
+h2 {
+    color: #FFFFFF;
+    font-family: "Geo",serif;
+    font-size:240%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 20px;
+    
+}
+
+.input-box input {
+    width: 100%;
+    padding: 10px 300px;
+    border: 2px solid #ffffff;
+    border-radius: 4em;
+    padding: 0.5em 2em;
+    background-color: #dcd7c900;
+    color: #FFFFFF;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-box input:focus {
+    border-color: #A2A2A2;
+    outline: none;
+    box-shadow: 0 0 8px rgba(162, 123, 92, 0);
+}
+
+.input-box input::placeholder {
+    color: #A2A2A2;
+    
+    transition: color 0.3s ease;
+}
+
+.input-box input:focus::placeholder {
+    color: #ffffff;
+}
+
+.input-box i {
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    color: #ffffff;
+    z-index: 10; /* Adjust as necessary */
+}
+
+.btn {
+    background-color: #A2A2A2;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    margin-left: 20%;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease-in-out;
+    width: 60%;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0);
+    transition: width 0.3s ease, height 0.3s ease, top 0.3s ease, left 0.3s ease;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+.btn:hover::after {
+    width: 0%;
+    height: 0%;
+}
+
+.btn:hover {
+    background-color: #FFFFFF;
+}
+
+.btn span {
+    position: relative;
+    z-index: 1;
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.register-link p{
+    color: #FFFFFF;
+}
+
+.register-link a {
+    color: #A2A2A2;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Form */
+@media (max-width: 480px) {
+    .login_wrapper{
+        padding: 15px;
+    }
+
+    .input-box input {
+        padding: 8px 35px 8px 8px;
+    }
+
+    .btn {
+        padding: 8px 15px;
+    }
+}
+
+body{
+    overflow-y: scroll;
+}
+
+

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Face Comparison</title>
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group input[type="file"] {
+      width: 100%;
+    }
+
+    .form-group button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .form-group button:hover {
+      background-color: #0056b3;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #f8f9fa;
+      border: 1px solid #ccc;
+    }
+
+    .verified {
+      color: green;
+    }
+
+    .not-verified {
+      color: red;
+    }
+
+    #video {
+      display: block;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+    }
+
+    #captureButton {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #captureButton:hover {
+      background-color: #218838;
+    }
+  </style>
+
+</head>
+<body>
+  <h1>Face Comparison</h1>
+  <form action="/compare" id="compareForm" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="photo1">Capture First Photo:</label>
+        <video id="video" width="640" height="480" autoplay></video>
+        <button type="button" id="captureButton">Capture Photo</button>
+        <canvas id="canvas" style="display: none;"></canvas>
+        <input type="file" name="photo1" id="photo1" style="display: none;">
+      </div>
+<br><br>
+<div class="form-group">
+        <button type="submit">Compare Faces</button>
+      </div>
+
+    <br><br>
+<!-- Comparison Result -->
+    <div id="result" class="result" style="display:none;">
+      <h3>Result:</h3>
+      <p id="verificationStatus"></p>
+      <p>Confidence: <span id="confidence"></span></p>
+    </div>
+  </div>
+<script>
+// Get references to elements
+const video = document.getElementById('video');
+const canvas = document.getElementById('canvas');
+    const captureButton = document.getElementById('captureButton');
+    const photo1 = document.getElementById('photo1');
+    const photoForm = document.getElementById('compareForm');
+    const resultDiv = document.getElementById('result');
+    const statusElement = document.getElementById('verificationStatus');
+    const confidenceElement = document.getElementById('confidence');
+
+
+async function initCamera() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        video.srcObject = stream;
+      } catch (error) {
+        alert("Error accessing the camera: " + error.message);
+      }
+    }
+
+    // Capture photo from the camera feed
+    captureButton.addEventListener('click', () => {
+      const context = canvas.getContext('2d');
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+      // Convert canvas to an image file and set it as the input value
+      canvas.toBlob((blob) => {
+        const file = new File([blob], 'photo1.jpg', { type: 'image/jpeg' });
+        const dataTransfer = new DataTransfer();
+        dataTransfer.items.add(file);
+        photo1.files = dataTransfer.files;
+      }, 'image/jpeg');
+    });
+
+    // Initialize camera when the page loads
+    window.onload = initCamera;
+
+    // Handle form submission
+    photoForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      // Get the form data
+      const formData = new FormData();
+      formData.append('photo1', document.getElementById('photo1').files[0]);
+      
+
+      try {
+        // Send the form data to the backend API
+        const response = await fetch('http://face-container:3021/compare', {
+          method: 'POST',
+          body: formData,
+        });
+
+        const data = await response.json();
+
+        // Display result
+        if (data.verified) {
+          statusElement.textContent = 'The faces match!';
+          statusElement.classList.add('verified');
+          statusElement.classList.remove('not-verified');
+        } else {
+          statusElement.textContent = 'The faces do not match.';
+          statusElement.classList.add('not-verified');
+          statusElement.classList.remove('verified');
+        }
+
+        confidenceElement.textContent = data.confidence;
+        resultDiv.style.display = 'block';
+
+      } catch (error) {
+        console.error('Error during face comparison:', error);
+      }
+    });
+</script>
+  <script src="http://localhost:3021/front2.js"></script>
+
+  </form>
+</body>
+</html>

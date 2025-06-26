@@ -1,0 +1,20 @@
+{
+  "name": "pdftojpg",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node convertPdfToJpg.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "canvas": "^2.11.2",
+    "cloudinary": "^2.5.1",
+    "node-poppler": "^7.2.3",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^4.10.38"
+  }
+}

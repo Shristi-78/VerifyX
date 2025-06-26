@@ -1,0 +1,273 @@
+/* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Geo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+
+body {
+    font-family: 'Fraunces', sans-serif;
+    background: linear-gradient(to bottom, #a8e9ee, #3aacb9); /* Dark blue gradient */
+    margin: 0;
+    padding: 0;
+    color: #2C3639;
+}
+
+h1, h3 {
+    color: #3F4E4F;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+/* Navigation Bar */
+.nav {
+    background-color: #2C3639;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav h1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Geo';
+    color: #A27B5C;
+    font-size: 1.8em;
+    margin: 0;
+}
+.nav img{
+    height:60px;
+}
+
+.nav-container {
+    display: flex;
+    gap: 20px;
+}
+
+.nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav a:hover {
+    color: #A27B5C;
+}
+
+#org {
+    background-color: #A27B5C;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#org:hover {
+    background-color: #3F4E4F;
+}
+
+/* Form Styles */
+.form_h1 {
+    margin: 20px 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0.1, 0.1);
+    max-width: 500px;
+    height: max-content;
+    margin: 0 auto 30px auto;
+}
+
+.form_content{
+    margin:1em 0;
+}
+
+form label {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: #434f3d;
+}
+
+form input[type="file"] {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 2px solid #3F4E4F;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 400px;
+}
+
+form button {
+    background-color: #434f3d;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #2c3129;
+}
+
+/* Table Styles */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #3F4E4F;
+    background-color: #FFFFFF;
+}
+
+table th {
+    background-color: #434f3d;
+    color: #FFFFFF;
+}
+
+table tr:nth-child(even) {
+    background-color: #F5F5F5;
+}
+
+/* Back to Profile Link */
+.back_profile {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.back_profile a {
+    color: #A27B5C;
+    text-decoration: none; 
+    font-weight: bold;
+    border: 2px solid #A27B5C;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back_profile a:hover {
+    background-color: #A27B5C;
+    color: #FFFFFF;
+}
+
+.box-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #F0F0F0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0.1, 0.1);
+    max-width: 500px;
+    height: max-content;
+    margin: 0 auto 30px auto;
+    text-align: center;
+
+}
+
+/* Custom Alert Styles */
+.custom-alert {
+    background-color: #DCD7C9; /* Beige color */
+    color: #3F4E4F; /* Darker text for contrast */
+    border: 1px solid #A27B5C;
+    border-radius: 5px;
+    padding: 15px 20px;
+    margin: 20px 0;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none; /* Hide by default, show when needed */
+}
+
+.custom-alert.show {
+    display: block; /* Show the alert when needed */
+}
+
+.custom-alert .close-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #A27B5C;
+    float: right;
+    cursor: pointer;
+}
+
+.custom-alert .close-btn:hover {
+    color: #2C3639;
+}
+
+/* Flashed Messages Styles */
+.flashes {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+    margin: 20px 0; /* Add margin for spacing */
+    text-align: center; /* Center align the messages */
+}
+
+.flashes li {
+    background-color: #DCD7C9; /* Background color for messages */
+    color: #3F4E4F; /* Text color */
+    border: 1px solid #A27B5C; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Padding for spacing */
+    margin: 5px 0; /* Margin between messages */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+.flashes li.success {
+    background-color: #19b926; /* Success message background */
+    color: #FFFFFF; /* Success message text color */
+}
+
+.flashes li.error {
+    background-color: #FF6B6B; /* Error message background */
+    color: #FFFFFF; /* Error message text color */
+}
+
+.info-box {
+    padding: 20px;
+    background-color: white;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 28px;
+    position: relative; /* For absolute positioning of the checkmark */
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 255, 0, 0.5); /* Translucent green */
+    border-radius: 8px; /* Match the border radius of the box */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+  }
+
+  .checkmark::before {
+    content: '✔';
+    font-size: 100px; /* Make the checkmark larger */
+    color: white;
+  }
+
+
+ 	

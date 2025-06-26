@@ -1,0 +1,164 @@
+/* General page styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Geo', sans-serif;
+    background-color: #000633; /* Dark blue background */
+}
+
+/* Header styling */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    color: #ffffff;
+    background-color: #1c1c1c;
+    font-size: 18px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.nav h1 {
+    display: flex;
+    align-items: center;
+    font-size: 28px;
+}
+
+.nav h1 img {
+    height: 30px;
+    margin-left: 10px;
+}
+
+.nav h1 span {
+    font-size: 40px; /* Make "X" larger */
+    color: #ff5722;
+}
+
+.nav-container a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 30px;
+    transition: color 0.3s;
+}
+
+.nav-container a:hover {
+    color: #007bff;
+}
+
+/* Content styling */
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-top: 100px; /* Prevent overlap with header */
+    position: relative;
+    overflow: hidden; /* Ensure circles remain within the viewport */
+}
+
+/* Register box */
+.wrapper {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    width: 400px;
+    position: relative;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+    z-index: 1; /* Ensure the wrapper stays above the circles */
+}
+
+.wrapper:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7);
+}
+
+.wrapper h2 {
+    color: white;
+    font-size: 26px;
+    margin-bottom: 30px;
+}
+
+/* Input fields */
+.input-box input, .input-box-meta input {
+    width: 100%;
+    padding: 12px;
+    margin: 15px 0;
+    border: none;
+    border-radius: 8px;
+    background-color: #333;
+    color: #fff;
+}
+
+.input-box-meta button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.input-box-meta button:hover {
+    background-color: #0056b3;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.btn:hover {
+    background-color: #218838;
+}
+
+/* Circle background styles */
+.content::before, .content::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 1), transparent);
+    z-index: 0; /* Circles are behind the content */
+    opacity: 0.3; /* Adjust opacity for subtle effect */
+    animation: pulse 5s infinite ease-in-out;
+}
+
+/* Top-left circle */
+.content::before {
+    width: 500px;
+    height: 500px;
+    top: -150px;
+    left: -150px;
+}
+
+/* Bottom-right circle */
+.content::after {
+    width: 500px;
+    height: 500px;
+    bottom: -150px;
+    right: -150px;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.5
