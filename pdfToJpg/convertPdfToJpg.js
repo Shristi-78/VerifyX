@@ -4,9 +4,9 @@ const { createCanvas } = require('canvas');
 
 // Cloudinary configuration
 cloudinary.config({
-  cloud_name: 'dgyeeigq7', // Replace with your Cloudinary cloud name
-  api_key: '358489372894979', // Replace with your Cloudinary API key
-  api_secret: 'EXHBsi9lxA_y9oiPrwDWAhj7pi8', // Replace with your Cloudinary API secret
+  cloud_name: '...', // Replace with your Cloudinary cloud name
+  api_key: '...', // Replace with your Cloudinary API key
+  api_secret: '...', // Replace with your Cloudinary API secret
 });
 
 async function convertPdfToJpg(pdfFilePath, outputDir) {
